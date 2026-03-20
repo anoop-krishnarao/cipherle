@@ -19,3 +19,15 @@ body {
   max-width: 600px;
   padding: 2rem;
 }
+
+.hint {
+  color: #888;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.guesses {
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,53 @@
+.cipher-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.cipher-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 2px;
+  border-bottom: 2px solid #444;
+  min-width: 28px;
+  transition: border-color 0.15s;
+}
+
+.cipher-cell:hover:not(.solved) {
+  border-color: #888;
+}
+
+.cipher-cell.selected {
+  border-color: #f0c040;
+}
+
+.cipher-cell.solved {
+  border-color: #4caf80;
+  cursor: default;
+}
+
+.cipher-plain {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  min-height: 1.4rem;
+  line-height: 1.4rem;
+}
+
+.cipher-cell.solved .cipher-plain {
+  color: #4caf80;
+}
+
+.cipher-letter {
+  font-size: 0.65rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.cipher-space {
+  min-width: 16px;
+}
