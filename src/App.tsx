@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { initGameState, makeGuess } from './engine/cipher'
 import { puzzles } from './data/puzzles'
 import { CipherDisplay } from './components/CipherDisplay'
@@ -11,6 +11,21 @@ function App() {
   const [gameState, setGameState] = useState(initialState)
   const [selectedCipher, setSelectedCipher] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (gameState.status !== 'playing') return
+      const key = e.key.toUpperCase()
+
+      if (key.length === 1 && key.match(/[A-Z]/)) {
+        if (!selectedCipher) return
+        handleGuess(key)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedCipher, gameState])
 
   function handleGuess(plainLetter: string) {
     if (!selectedCipher || gameState.status !== 'playing') return
