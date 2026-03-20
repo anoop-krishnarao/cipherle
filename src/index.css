@@ -31,3 +31,10 @@ body {
   color: #666;
   font-size: 0.85rem;
 }
+
+.copied-toast {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #4caf80;
+  margin-top: 0.5rem;
+}
